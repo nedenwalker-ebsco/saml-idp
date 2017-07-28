@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../public/main.css" th:href="@{/main.css}" />
+</head>
+<h1>Mujina Identity Provider</h1>
+<section class="attributes">
+    <a th:href="@{/logout}">Logout - this only ends your session with the Identity Provider</a>
+    <p>The following information is stored in your authentication</p>
+    <ul>
+        <li>Name</li>
+        <li th:text="${user.principal}"></li>
+    </ul>
+    <ul th:each="authority : ${user.authorities}">
+        <li>Authority</li>
+        <li th:text="${authority.authority}"></li>
+    </ul>
+</section>
+</html>
